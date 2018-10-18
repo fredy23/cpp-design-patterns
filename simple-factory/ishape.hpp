@@ -1,8 +1,8 @@
 #pragma once
 
-class Shape
+class IShape
 {
     public:
         virtual double getArea() const noexcept = 0;
-        virtual ~Shape() = default;
+        virtual ~IShape() = default;
 };

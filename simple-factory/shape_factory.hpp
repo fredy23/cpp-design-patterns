@@ -3,7 +3,7 @@
 #include <memory>
 #include <type_traits>
 
-#include "shape.hpp"
+#include "ishape.hpp"
 #include "circle.hpp"
 #include "rectangle.hpp"
 
@@ -17,7 +17,7 @@ class ShapeFactory
         };
 
         template<typename... Args>
-        std::unique_ptr<Shape> createShape(ShapeType p_type, Args&&... args);
+        std::unique_ptr<IShape> createShape(ShapeType p_type, Args&&... args);
 
     private:
         template<typename T, typename... Args>
@@ -35,7 +35,7 @@ class ShapeFactory
 };
 
 template<typename... Args>
-std::unique_ptr<Shape> ShapeFactory::createShape(ShapeType p_type, Args&&... args)
+std::unique_ptr<IShape> ShapeFactory::createShape(ShapeType p_type, Args&&... args)
 {
     if(p_type == ShapeType::TYPE_CIRCLE)
     {

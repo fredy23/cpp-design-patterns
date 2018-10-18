@@ -2,9 +2,9 @@
 
 #include <cmath>
 
-#include "shape.hpp"
+#include "ishape.hpp"
 
-class Circle : public Shape
+class Circle : public IShape
 {
     public:
         Circle(double p_radius)

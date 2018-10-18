@@ -1,8 +1,8 @@
 #pragma once
 
-#include "shape.hpp"
+#include "ishape.hpp"
 
-class Rectangle : public Shape
+class Rectangle : public IShape
 {
     public:
         Rectangle(double p_width, double p_height)
