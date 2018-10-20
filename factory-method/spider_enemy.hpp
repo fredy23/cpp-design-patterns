@@ -10,7 +10,7 @@ class SpiderEnemy : public IEnemy
         {
         }
 
-        void attack(IEnemy& p_enemy)
+        void attack(IEnemy& p_enemy) override
         {
             p_enemy.injure(10);
         }    

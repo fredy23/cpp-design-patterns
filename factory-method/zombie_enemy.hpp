@@ -10,7 +10,7 @@ class ZombieEnemy : public IEnemy
         {
         }
 
-        void attack(IEnemy& p_enemy)
+        void attack(IEnemy& p_enemy) override
         {
             if(m_swordDamage > 0)
             {
