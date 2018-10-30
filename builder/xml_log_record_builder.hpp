@@ -7,6 +7,16 @@
 class XMLLogRecordBuilder : public ILogRecordBuilder
 {
     public:
+        void buildLogRecordStart()
+        {
+            m_logRecord.setStart("<log>");
+        }
+
+        void buildLogRecordEnd()
+        {
+            m_logRecord.setEnd("</log>");
+        }
+
         void buildLogRecordType(const std::string& p_type)
         {
             m_logRecord.setType("<type>" + p_type + "</type>");

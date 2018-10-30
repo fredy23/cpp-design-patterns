@@ -6,6 +6,16 @@ class LogRecord
 {
     public:
 
+        void setStart(const std::string& p_start)
+        {
+            m_start = p_start;
+        }
+
+        void setEnd(const std::string& p_end)
+        {
+            m_end = p_end;
+        }
+
         void setType(const std::string& p_type)
         {
             m_type = p_type;
@@ -23,10 +33,14 @@ class LogRecord
 
         std::string getLogRecordContent() const
         {
-            return m_type + '\n' + m_message + '\n' + m_dateTime;
+            return m_start + "\n  " +
+                   m_type + "\n  " + m_message + "\n  " + m_dateTime + '\n'
+                   + m_end;
         }
 
     private:
+        std::string m_start {};
+        std::string m_end {};
         std::string m_type {};
         std::string m_message {};
         std::string m_dateTime {};

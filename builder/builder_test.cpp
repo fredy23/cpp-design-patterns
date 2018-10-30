@@ -28,11 +28,17 @@ int main()
 
     logDirector.buildLogRecord("info", "Everything is OK", getCurrentDateTime());
 
+    std::cout << "XML log record content:\n\n";
+
     auto logRecord = logDirector.getLogRecord();
+    std::cout << logRecord.getLogRecordContent() << "\n\n";
 
-    std::cout << logRecord.getLogRecordContent() << '\n';
+    JSONLogRecordBuilder jsonLogBuilder {};
+    logDirector.setLogRecordBuilder(&jsonLogBuilder);
+    logDirector.buildLogRecord("error", "Bad things happen...", "2018-10-20 16:06:13");
 
-    /*JSONLogRecordBuilder jsonLogBuilder {};
-    logDirector.setLogRecordBuilder(jsonRecordBuilder);
-    logDirector.buildLogRecord("error", "Bad things happen...", "2018-10-20 16:06:13");*/
+    std::cout << "JSON log record content:\n\n";
+
+    logRecord = logDirector.getLogRecord();
+    std::cout << logRecord.getLogRecordContent() << "\n\n";
 }
