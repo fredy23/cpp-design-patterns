@@ -6,19 +6,7 @@
 #include "xml_log_record_builder.hpp"
 #include "json_log_record_builder.hpp"
 
-std::string getCurrentDateTime()
-{
-    std::time_t timeData = std::time(nullptr);
-    std::string formattedDateTime {"0000-00-00 00:00:00"};
-    char buffer[32];
-
-    if(std::strftime(buffer, sizeof(buffer), "%F %T", std::localtime(&timeData)))
-    {
-        formattedDateTime = buffer;
-    }
-
-    return formattedDateTime;
-}
+#include "datetime_utils.hpp"
 
 int main()
 {
@@ -26,7 +14,7 @@ int main()
 
     LogRecordDirector logDirector {&xmlLogBuilder};
 
-    logDirector.buildLogRecord("info", "Everything is OK", getCurrentDateTime());
+    logDirector.buildLogRecord("info", "Everything is OK", DateTimeUtils::getCurrentDateTime());
 
     std::cout << "XML log record content:\n\n";
 
