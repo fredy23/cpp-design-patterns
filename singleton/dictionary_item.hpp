@@ -26,7 +26,7 @@ public:
         return m_word < p_other.m_word;
     }
 
-    operator bool()
+    operator bool() const
     {
         return !m_word.empty();
     }

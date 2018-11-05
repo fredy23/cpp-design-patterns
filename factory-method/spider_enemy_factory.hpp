@@ -8,9 +8,9 @@
 
 class SpiderEnemyFactory : public IEnemyFactory
 {
-    public:
-        std::unique_ptr<IEnemy> createEnemy() const override
-        {
-            return std::make_unique<SpiderEnemy>();
-        }
+public:
+    std::unique_ptr<IEnemy> createEnemy() const override
+    {
+        return std::make_unique<SpiderEnemy>();
+    }
 };
