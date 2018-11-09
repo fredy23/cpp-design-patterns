@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "ienemy.hpp"
+class IEnemy;
 
 class IEnemyFactory
 {
