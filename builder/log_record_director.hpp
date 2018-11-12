@@ -7,14 +7,14 @@
 class LogRecordDirector
 {
 public:
-    LogRecordDirector(ILogRecordBuilder* p_logBuilder)
-        : m_logBuilder{p_logBuilder}
+    LogRecordDirector(std::unique_ptr<ILogRecordBuilder>&& p_logBuilder)
+        : m_logBuilder{std::move(p_logBuilder)}
     {
     }
 
-    void setLogRecordBuilder(ILogRecordBuilder* p_logBuilder)
+    void setLogRecordBuilder(std::unique_ptr<ILogRecordBuilder>&& p_logBuilder)
     {
-        m_logBuilder = p_logBuilder;
+        m_logBuilder = std::move(p_logBuilder);
     }
 
     void buildLogRecord(
@@ -35,5 +35,5 @@ public:
     }
 
 private:
-    ILogRecordBuilder* m_logBuilder;
+    std::unique_ptr<ILogRecordBuilder> m_logBuilder;
 };

@@ -10,9 +10,7 @@
 
 int main()
 {
-    XMLLogRecordBuilder xmlLogBuilder {};
-
-    LogRecordDirector logDirector {&xmlLogBuilder};
+    LogRecordDirector logDirector {std::make_unique<XMLLogRecordBuilder>()};
 
     logDirector.buildLogRecord("info", "Everything is OK", DateTimeUtils::getCurrentDateTime());
 
@@ -21,8 +19,7 @@ int main()
     auto logRecord = logDirector.getLogRecord();
     std::cout << logRecord.getLogRecordContent() << "\n\n";
 
-    JSONLogRecordBuilder jsonLogBuilder {};
-    logDirector.setLogRecordBuilder(&jsonLogBuilder);
+    logDirector.setLogRecordBuilder(std::make_unique<JSONLogRecordBuilder>());
     logDirector.buildLogRecord("error", "Bad things happen...", "2018-10-20 16:06:13");
 
     std::cout << "JSON log record content:\n\n";
