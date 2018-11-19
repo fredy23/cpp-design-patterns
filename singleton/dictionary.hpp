@@ -23,9 +23,7 @@ public:
     Dictionary& operator=(const Dictionary&) = delete;
 
 private:
-    Dictionary()
-    {
-    }
+    Dictionary() = default;
 
     std::set<DictionaryItem> m_dictionary {};
     std::mutex m_mutex;
